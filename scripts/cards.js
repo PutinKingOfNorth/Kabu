@@ -109,7 +109,7 @@ class Card {
 		if (value < 0 || value > 13) {
 			throw 'Invalid number: ' + value;
 		}
-		this.number = value;
+		this._number = value;
 	}
 	get cardtype() {
 		return this._cardType;
