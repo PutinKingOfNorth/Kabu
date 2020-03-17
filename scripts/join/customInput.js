@@ -1,4 +1,22 @@
-var inputElem = document.getElementById("input_name");
+let urlPar= new URLSearchParams(window.location.search);
+let hasErorr = urlPar.has('error');
+
+
+let joinBtn = document.getElementById("button_join");
+joinBtn.disabled = true;
+
+
+if (hasErorr)
+{
+
+	let form = document.getElementById('form');
+	let newPar = document.createElement("div");
+	let newText = document.createTextNode("Error: "+urlPar.get('error'));
+	newPar.appendChild(newText);
+	form.insertBefore(newPar, joinBtn);
+}
+
+let inputElem = document.getElementById("input_name");
 let cb = function (e)
 {
 	let newText = e.target.value;
@@ -19,6 +37,3 @@ let cb = function (e)
 };
 inputElem.addEventListener('input', cb);
 inputElem.addEventListener('propertychange', cb);
-
-var joinBtn = document.getElementById("button_join");
-joinBtn.disabled = true;
